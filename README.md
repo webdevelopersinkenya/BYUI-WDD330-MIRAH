@@ -18,3 +18,7 @@ Use this as a starting point to complete the WDD 330 team activity: the SleepOut
 - `npm run build` to build final files when you are ready to turn in.
 - `npm run lint` to run ESLint against your code to find errors.
 - `npm run format` to run Prettier to automatically format your code.
+
+## Team Info:
+Production Site: https://incredible-bienenstitch-e0fe6b.netlify.app/
+Team Trello Board: https://trello.com/b/IhbU5lHF/wdd-330-board
