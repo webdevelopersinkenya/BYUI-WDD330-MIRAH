@@ -1,46 +1,36 @@
 import { findProductById, getData } from "./productData.mjs";
+import { setLocalStorage } from "./utils.mjs";
 
-let currentProductID = 0;
-let currentProduct ={};
+let currentProduct = {};
+
 // 
-export default function productDetails(productId){
-    currentProductID = productId;
-    addToCart();
-    renderProductDetails();
+export default async function productDetails(productId){
+  currentProduct = await findProductById(productId);
+  renderProductDetails();
+  document.getElementById("addToCart").addEventListener("click", addToCart);
 }
 
 function addToCart(){
-    currentProduct = findProductById(currentProductID);
-    addProductToCart(product);
+    addProductToCart(currentProduct);
 }
 
 function addProductToCart(product) {
     setLocalStorage("so-cart", product);
   }
 
+
 function renderProductDetails(){
-    return `<section class="product-detail">
-    <h3 id="brandName">${currentProduct.brand}</h3>
-  
-    <h2 id="productNameNoBrand" class="divider">${currentProduct.name}</h2>
-  
-    <img
-      class="divider"
-      id="productImage"
-      src="${currentProduct.image}"
-      alt=""
-    />
-  
-    <p class="product-card__price" id="productFinalPrice">${currentProduct.finalPrice}</p>
-  
-    <p class="product__color" id="productColor">${currentProduct.color}</p>
-  
-    <p class="product__description" id="productDescription">
-    ${currentProduct.description}
-    </p>
-  
-    <div class="product-detail__add">
-      <button id="addToCart" data-id="${currentProduct.id}">Add to Cart</button>
-    </div>
-  </section>`;;
+  // console log all the used values
+  console.log(currentProduct);
+  console.log(currentProduct.Image);
+  document.querySelector("#productName").innerText = currentProduct.Brand.Name;
+  document.querySelector("#productNameWithoutBrand").innerText =
+    currentProduct.NameWithoutBrand;
+  document.getElementById("productImage").src = currentProduct.Image;
+  document.querySelector("#productImage").alt = currentProduct.Name;
+  document.querySelector("#productFinalPrice").innerText = currentProduct.FinalPrice;
+  document.querySelector("#productColorName").innerText =
+    currentProduct.Colors[0].ColorName;
+  document.querySelector("#productDescriptionHtmlSimple").innerHTML = currentProduct.DescriptionHtmlSimple;
+  document.querySelector("#addToCart").dataset.id = currentProduct.Id;
 }
