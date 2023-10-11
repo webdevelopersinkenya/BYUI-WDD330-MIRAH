@@ -28,3 +28,9 @@ export function getParam(param) {
   const product = urlParams.get('product');
   return product;
 }
+
+export function renderTemplateList(element, list, where="beforeend", templateFunction, clear=true){
+  list.forEach((product) => {
+      element.insertAdjacentHTML(where, templateFunction(product));
+  })
+}
