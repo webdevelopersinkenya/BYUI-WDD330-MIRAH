@@ -34,3 +34,30 @@ export function renderTemplateList(element, list, where="beforeend", templateFun
       element.insertAdjacentHTML(where, templateFunction(product));
   })
 }
+
+export function renderTemplate(element, where="beforeend", templateFunction, clear=true){
+  if (clear) {
+    parentElement.innerHTML = "";
+  }
+  element.insertAdjacentHTML(where, templateFunction);
+}
+
+function loadTemplate(path){
+  // fetch request to the provided path
+  return async function () {
+    const res = await fetch(path);
+    if (res.ok) {
+      const html = await res.text();
+      return html;
+    }
+  };
+}
+
+export function loadHeaderFooter(){
+  const headerTemplateFn = loadTemplate("/partials/header.html");
+  const footerTemplateFn = loadTemplate("/partials/footer.html");
+  const headerelement = document.getElementById("main-header");
+  const footerelement = document.getElementById("main-footer");
+  renderTemplate(headerelement, "beforeend", headerTemplateFn);
+  renderTemplate(headerelement, "beforeend", headerTemplateFn);
+}
