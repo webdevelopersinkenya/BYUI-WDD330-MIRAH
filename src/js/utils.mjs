@@ -37,25 +37,26 @@ export function renderTemplateList(element, list, where="beforeend", templateFun
 
 export function renderTemplate(element, where="beforeend", templateFunction, clear=true){
   if (clear) {
-    parentElement.innerHTML = "";
+    element.innerHTML = "";
   }
   element.insertAdjacentHTML(where, templateFunction);
 }
 
-function loadTemplate(path){
-  // fetch request to the provided path
-  return async function () {
-    const res = await fetch(path);
+async function loadTemplate(path) {
+  return new Promise(async (resolve, reject) => {
+    const res = await fetch(path); // Make an HTTP request using fetch
     if (res.ok) {
       const html = await res.text();
-      return html;
+      resolve(html);
+    } else {
+      reject(new Error('Error loading template'));
     }
-  };
+  });
 }
 
-export function loadHeaderFooter(){
-  const headerTemplateFn = loadTemplate("/partials/header.html");
-  const footerTemplateFn = loadTemplate("/partials/footer.html");
+export async function loadHeaderFooter(){
+  const headerTemplateFn = await loadTemplate("/partials/header.html");
+  const footerTemplateFn = await loadTemplate("/partials/footer.html");
   const headerelement = document.getElementById("main-header");
   const footerelement = document.getElementById("main-footer");
   renderTemplate(headerelement, "beforeend", headerTemplateFn);
