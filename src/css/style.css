@@ -220,3 +220,29 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+.products {
+  display: flex;
+  justify-content: space-evenly;
+  padding-left: 8em;
+  padding-right: 8em;
+}
+
+.products a {
+  text-decoration: none;
+}
+
+.products a img {
+  width: 7rem;
+}
+
+.products a p {
+  text-align: center;
+  font-weight: bold;
+  color: black;
+}
+
+
+.products-header{
+  text-transform: capitalize;
+}

@@ -1,3 +1,8 @@
 import productList from "../js/productList.mjs";
+import { getParam } from "../js/utils.mjs";
 
-productList(".product-list", "tents");
+const productType = getParam("type");
+console.log(productType);
+productList(".product-list", productType);
+
+
