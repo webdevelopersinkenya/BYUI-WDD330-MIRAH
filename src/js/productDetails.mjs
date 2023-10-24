@@ -26,7 +26,7 @@ function renderProductDetails(){
   document.querySelector("#productName").innerText = currentProduct.Brand.Name;
   document.querySelector("#productNameWithoutBrand").innerText =
     currentProduct.NameWithoutBrand;
-  document.getElementById("productImage").src = currentProduct.Image;
+  document.getElementById("productImage").src = currentProduct.Images.PrimaryLarge;
   document.querySelector("#productImage").alt = currentProduct.Name;
   document.querySelector("#productFinalPrice").innerText = currentProduct.FinalPrice;
   document.querySelector("#productColorName").innerText =

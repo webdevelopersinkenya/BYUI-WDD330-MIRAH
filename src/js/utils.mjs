@@ -25,7 +25,7 @@ export function setClick(selector, callback) {
 export function getParam(param) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const product = urlParams.get('product');
+  const product = urlParams.get(param);
   return product;
 }
 
@@ -35,7 +35,7 @@ export function renderTemplateList(element, list, where="beforeend", templateFun
   })
 }
 
-export function renderTemplate(element, where="beforeend", templateFunction, clear=true){
+export async function renderTemplate(element, where="beforeend", templateFunction, clear=true){
   if (clear) {
     element.innerHTML = "";
   }
@@ -60,5 +60,5 @@ export async function loadHeaderFooter(){
   const headerelement = document.getElementById("main-header");
   const footerelement = document.getElementById("main-footer");
   renderTemplate(headerelement, "beforeend", headerTemplateFn);
-  renderTemplate(headerelement, "beforeend", headerTemplateFn);
+  renderTemplate(footerelement, "beforeend", footerTemplateFn);
 }
