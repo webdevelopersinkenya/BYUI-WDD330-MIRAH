@@ -246,3 +246,54 @@ footer {
 .products-header{
   text-transform: capitalize;
 }
+
+/* a checkout form style, it is mobile friendly and every label above its input, and have all inputs stacked horizontally */
+.checkout-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--small-font);
+  max-width: 500px;
+  margin: auto;
+  padding: 1em;
+  border: 1px solid var(--light-grey);
+  border-radius: 5px;
+}
+
+.checkout-form label{
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout-form input{
+  margin: 0.5em 0;
+}
+
+/* we want a border around each section of the form */
+.checkout-form section{
+  border-bottom: 1px solid var(--light-grey);
+}
+
+.order-summary{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  flex: 1;
+  font-size: var(--small-font);
+  max-width: 500px;
+  margin: auto;
+  padding: 1em;
+  border: 1px solid var(--light-grey);
+  border-radius: 5px;
+}
+.order-summary > p{
+  align-items: start;
+  text-align: left;
+}
+
+form > button {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
