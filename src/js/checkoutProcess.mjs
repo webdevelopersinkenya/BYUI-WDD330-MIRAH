@@ -1,5 +1,5 @@
 import { check } from "prettier"
-import { renderTemplate, getLocalStorage } from "./utils.mjs";
+import { renderTemplate, getLocalStorage, setLocalStorage, alertMessage, removeAllAlerts } from "./utils.mjs";
 import { checkout } from "./externalServices.mjs";
 
 
@@ -7,6 +7,43 @@ import { checkout } from "./externalServices.mjs";
 const BASE_SHIPPING_RATE = 10.00;
 const ADDITIONAL_SHIPPING_RATE = 2.00;
 const TAX_RATE = 0.6;
+
+
+function formDataToJSON(formElement) {
+    const formData = new FormData(formElement),
+      convertedJSON = {};
+  
+    formData.forEach(function (value, key) {
+      convertedJSON[key] = value;
+    });
+  
+    return convertedJSON;
+  }
+  
+  function packageItems(items) {
+    // log the type of items
+    //create a new list and append the items if it is an array or add the object if it is an object
+    console.log("items: " + typeof items);
+
+    const fixedItems = [];
+
+    if (Array.isArray(items)) {
+      fixedItems.push(...items);
+    } else {
+      fixedItems.push(items);
+    }
+    console.log("items: " + typeof items);
+    const simplifiedItems = fixedItems.map((item) => {
+      console.log(item);
+      return {
+        id: item.Id,
+        price: item.FinalPrice,
+        name: item.Name,
+        quantity: 1,
+      };
+    });
+    return simplifiedItems;
+  }
 
 
 function orderSummaryTemplate(subtotal, shipping, total) {
@@ -19,9 +56,8 @@ function orderSummaryTemplate(subtotal, shipping, total) {
 
 const checkoutProcess = {
     key:"",
-    outputSelector:"",
+    outputSelector:"#ordersummary",
     list: [""],
-    list2: ["apples", "bananas", "oranges"],
     subtotal: 0,
     shipping: 0,
     total: 0,
@@ -30,7 +66,8 @@ const checkoutProcess = {
     init: function(key, outputSelector){
         this.key = key;
         this.outputSelector = outputSelector;
-        this.list.push(getLocalStorage(key));
+        this.list = getLocalStorage(key);
+        // this.list.push(getLocalStorage(key));
         this.calculateShipping(this.list.length);
         this.calculateTax();
         this.calculateTotal();
@@ -94,8 +131,35 @@ const checkoutProcess = {
         const total = this.total;
         const htmlToRender = orderSummaryTemplate(subtotal, shipping, total);
         console.log(htmlToRender);
-        renderTemplate(document.querySelector(this.outputSelector), "beforeend", htmlToRender);
-    }
+        //get the element with the id ordersummary
+        const orderSummaryElement = document.getElementById("ordersummary");
+        renderTemplate(orderSummaryElement, "beforeend", htmlToRender);
+    },
+
+    checkout: async function (form) {
+        const json = formDataToJSON(form);
+        // add totals, and item details
+        json.orderDate = new Date();
+        json.orderTotal = this.total;
+        json.tax = this.tax;
+        json.shipping = this.shipping;
+        json.items = packageItems(this.list);
+        console.log(json);
+        try {
+          const res = await checkout(json);
+          location.assign("/checkout/success.html");
+          setLocalStorage("so-cart", []);
+          console.log(res);
+
+        } catch (err) {
+            removeAllAlerts();
+          console.log(err);
+          for (let msg in err.message)
+          {
+            alertMessage(err.message[msg]);
+          }
+        }
+      },
 }
 
 
