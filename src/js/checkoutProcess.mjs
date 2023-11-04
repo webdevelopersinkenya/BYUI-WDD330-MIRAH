@@ -1,5 +1,7 @@
 import { check } from "prettier"
 import { renderTemplate, getLocalStorage } from "./utils.mjs";
+import { checkout } from "./externalServices.mjs";
+
 
 
 const BASE_SHIPPING_RATE = 10.00;

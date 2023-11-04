@@ -1,4 +1,4 @@
-import { getData } from "./productData.mjs";
+import { getProductsByCategory } from "./externalServices.mjs";
 import { renderTemplateList, renderTemplate } from "./utils.mjs";
 // Given a selector and aproduct category we want to get the list of products from the json.
 export default async function productList(selector, category) {
@@ -6,7 +6,7 @@ export default async function productList(selector, category) {
     const element = document.querySelector(selector);
     const headerelement = document.querySelector(".products-header");
     // Get the list of all products from the tents.json file
-    const listOfProducts = await getData(category);
+    const listOfProducts = await getProductsByCategory(category);
     console.log(category);
     console.log(listOfProducts);
     // Add the products to the DOM
