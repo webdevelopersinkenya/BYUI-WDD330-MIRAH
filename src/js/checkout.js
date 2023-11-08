@@ -4,13 +4,14 @@ import checkoutProcess from "./checkoutProcess.mjs";
 loadHeaderFooter();
 
 checkoutProcess.init("so-cart", ".checkout-summary");
+checkoutProcess.displayOrderSummary();
 
-document
-  .querySelector("#zip")
-  .addEventListener(
-    "blur",
-    checkoutProcess.calculateOrdertotal.bind(checkoutProcess)
-  );
+// document
+//   .querySelector("#zipcode")
+//   .addEventListener(
+//     "blur",
+//     checkoutProcess.calculateOrdertotal.bind(checkoutProcess)
+//   );
 
 // this is how it would look if we listen for the submit on the form
 document.forms["checkout"].addEventListener("submit", (e) => {

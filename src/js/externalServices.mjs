@@ -6,7 +6,7 @@ function convertToJson(response)
     if(response.ok){
         return response.json();
     } else {
-        throw new Error("Bad Response");
+        throw {name: "ServiceError", message: response.statusText};
     }
 }
 
