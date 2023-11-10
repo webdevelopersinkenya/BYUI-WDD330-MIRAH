@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Web Application</title>
+</head>
+<body>
+    <header>
+        <h1>Tropics Fruit Juices</h1>
+    </header>
+
+    <nav>
+        <!-- Navigation links can be added here -->
+    </nav>
+
+    <main>
+        <!-- 
+            Views for different sections of the application.
+            These views will be dynamically loaded based on user interactions.
+        -->
+        <!-- Add this HTML section within the main tag -->
+
+<div id="allJuicesView" style="display: none;">
+    <!-- All fruit juices will be dynamically loaded here -->
+</div>
+
+<!-- Add a button to trigger the display of all fruit juices -->
+<button id="showAllJuicesButton">Show All Fruit Juices</button>
+
+        <div id="loginView">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <div id="dashboardView" style="display: none;">
+            <!-- Dashboard content will be dynamically loaded here -->
+        </div>
+
+        <div id="dataEntryView" style="display: none;">
+            <!-- Data entry form will be dynamically loaded here -->
+        </div>
+
+        <div id="settingsView" style="display: none;">
+            <!-- Settings form will be dynamically loaded here -->
+        </div>
+
+        <div id="localJsonView" style="display: none;">
+            <!-- Local JSON data display will be dynamically loaded here -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Web Application</p>
+    </footer>
+
+    <script src="script/app.js"></script>
+</body>
+</html>

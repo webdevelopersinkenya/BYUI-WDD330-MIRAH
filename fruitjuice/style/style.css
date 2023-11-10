@@ -1,0 +1,93 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f5ed; /* Light sandy color for the background */
+}
+
+header {
+    background-color: #2c3e50; /* Deep blue for the header */
+    color: #ecf0f1; /* Light gray for text in the header */
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    background-color: #3498db; /* Bright blue for the navigation bar */
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    background-color: #2c3e50; /* Deep blue for the footer */
+    color: #ecf0f1; /* Light gray for text in the footer */
+    text-align: center;
+    padding: 10px;
+}
+
+/* Style for buttons */
+button {
+    background-color: #27ae60; /* Vibrant green for buttons */
+    color: #ecf0f1; /* Light gray text for buttons */
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #219653; /* Slightly darker green on hover */
+}
+
+/* Style for forms */
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #2c3e50; /* Deep blue for label text */
+}
+
+input,
+select {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+/* Style for juice views */
+div[id^="juice"] {
+    background-color: #f39c12; /* Vibrant orange for juice views */
+    color: #ecf0f1; /* Light gray text for juice views */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+/* Style for the list of all fruit juices */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Style for the "Show All Fruit Juices" button */
+#showAllJuicesButton {
+    background-color: #e74c3c; /* Vibrant red for the button */
+}
+
+#showAllJuicesButton:hover {
+    background-color: #c0392b; /* Slightly darker red on hover */
+}
