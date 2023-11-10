@@ -18,6 +18,27 @@ nav {
     justify-content: space-around;
     padding: 10px;
 }
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+li {
+    margin-right: 20px; /* Adjust as needed for spacing between links */
+}
+
+a {
+    text-decoration: none;
+    color: #fff; /* White color for the links */
+    font-weight: bold;
+    font-size: 16px; /* Adjust as needed */
+}
+
+a:hover {
+    color: #ecf0f1; /* Light gray color on hover */
+}
 
 main {
     padding: 20px;

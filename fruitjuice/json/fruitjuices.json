@@ -1,57 +1,70 @@
 {
     "fruitJuices": [
       {
+        "image": "https://https://www.alphafoodie.com/wp-content/uploads/2020/11/Orange-Juice-1-of-1.jpeg",
         "name": "Orange Juice",
         "recipe": "Freshly squeezed oranges",
         "price": 2.5
+        
       },
+
       {
+        "image": "https://example.com/images/orange.jpg",
         "name": "Apple Juice",
         "recipe": "Pressed apples",
         "price": 3.0
       },
       {
+        "image": "https://example.com/images/orange.jpg",
         "name": "Grape Juice",
         "recipe": "Crushed grapes",
         "price": 3.5
       },
       {
+        "image": "https://example.com/images/orange.jpg",
         "name": "Banana Smoothie",
         "recipe": "Blended bananas with yogurt",
         "price": 4.0
       },
       {
+        "image": "https://example.com/images/orange.jpg",
         "name": "Strawberry Lemonade",
         "recipe": "Fresh strawberries and lemon juice",
         "price": 3.8
       },
       {
+        "image": "https://example.com/images/orange.jpg",
         "name": "Watermelon Mint Cooler",
         "recipe": "Juicy watermelon with a hint of mint",
         "price": 4.2
       },
       {
+        "image": "https://example.com/images/orange.jpg",
         "name": "Pineapple Passionfruit Punch",
         "recipe": "Tropical pineapple with passionfruit twist",
         "price": 4.5
       },
     
           {
+            "image": "https://example.com/images/orange.jpg",
             "name": "Orange Juice",
             "recipe": "Freshly squeezed oranges",
             "price": 2.5
           },
           {
+            "image": "https://example.com/images/orange.jpg",
             "name": "Apple Juice",
             "recipe": "Pressed apples",
             "price": 3.0
           },
           {
+            "image": "https://example.com/images/orange.jpg",
             "name": "Grape Juice",
             "recipe": "Crushed grapes",
             "price": 3.5
           },
           {
+            "image": "https://example.com/images/orange.jpg",
             "name": "Banana Smoothie",
             "recipe": "Blended bananas with yogurt",
             "price": 4.0
