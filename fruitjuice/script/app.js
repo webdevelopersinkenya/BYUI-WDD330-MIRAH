@@ -1,45 +1,35 @@
-// Function to fetch fruit juice data from the JSON file
-function fetchFruitJuices() {
-    return fetch('json/fruitJuices.json')
+document.addEventListener('DOMContentLoaded', function () {
+    // JSON file with product data
+    const productData = 'json/products.json';
+
+    // Fetch data from JSON file
+    fetch(productData)
         .then(response => response.json())
-        .then(data => data.fruitJuices)
-        .catch(error => console.error('Error fetching fruit juice data:', error));
-}
+        .then(products => displayProducts(products))
+        .catch(error => console.error('Error fetching product data:', error));
 
-// Function to show the fruit juice selection view (example)
-function showFruitJuiceSelectionView(fruitJuices) {
-    // Implementation for showing the fruit juice selection view
-    console.log('Showing fruit juice selection view:', fruitJuices);
-}
+    function displayProducts(products) {
+        const productContainer = document.getElementById('product-container');
 
-// Function to generate and display a list of all fruit juices with their recipes and prices
-function showAllFruitJuices(fruitJuices) {
-    const allJuicesView = document.getElementById('allJuicesView');
-    allJuicesView.style.display = 'block';
+        products.forEach(product => {
+            const productCard = document.createElement('div');
+            productCard.classList.add('product-card');
 
-    // Create an HTML list of all fruit juices
-    const juiceListHTML = fruitJuices.map(juice => {
-        return `<li><strong>${juice.name}</strong>: ${juice.recipe} - $${juice.price.toFixed(2)}</li>`;
-    }).join('');
+            const productName = document.createElement('h2');
+            productName.textContent = product.name;
 
-    allJuicesView.innerHTML = `
-        <h2>All Fruit Juices</h2>
-        <ul>${juiceListHTML}</ul>
-    `;
-}
+            const productImage = document.createElement('img');
+            productImage.src = product.image;
+            productImage.alt = product.name;
 
-// Load fruit juice data from the JSON file and start the application
-let fruitJuices = [];
+            const productColor = document.createElement('p');
+            productColor.textContent = `Color: ${product.color}`;
 
-fetchFruitJuices()
-    .then(data => {
-        fruitJuices = data;
-        showFruitJuiceSelectionView(fruitJuices);
-        // Optionally, you can perform additional actions with the fruitJuices data here
-    })
-    .catch(error => console.error('Error initializing the application:', error));
+            productCard.appendChild(productName);
+            productCard.appendChild(productImage);
+            productCard.appendChild(productColor);
 
-// Event listener for a button to show all fruit juices
-document.getElementById('showAllJuicesButton').addEventListener('click', function () {
-    showAllFruitJuices(fruitJuices);
+            productContainer.appendChild(productCard);
+        });
+    }
 });

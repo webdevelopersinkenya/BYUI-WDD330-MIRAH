@@ -1,0 +1,10 @@
+[
+  {"name": "Banana", "color": "Yellow", "image": "image/banana.jpg"},
+  {"name": "Kales", "color": "Green", "image": "image/Kale.jpg"},
+  {"name": "Pineapple ", "color": "Yellow", "image": "image/pinepple.jpg"},
+  {"name": "Guava ", "color": "Yellow", "image": "image/guava.jpg"},
+  {"name": "lemon", "color": "burge", "image": "image/lemon.jpg"},
+  {"name": "Bitroot", "color": "red", "image": "image/bitroot.jpg"},
+  {"name": "Passion", "color": "yellow", "image": "image/passion.jpg"},
+  {"name": "Ginger", "color": "burge", "image": "image/ginger.jpg"}
+]
